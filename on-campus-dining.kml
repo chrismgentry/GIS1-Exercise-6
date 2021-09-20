@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>campus_points.kml</name>
+	<Style id="s_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/grn-blank.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/grn-blank-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="s_ylw-pushpin_hl">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/grn-blank.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/grn-blank-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Folder>
+		<name>Campus Points</name>
+		<open>1</open>
+		<Placemark>
+			<name>Starbucks</name>
+			<LookAt>
+				<longitude>-87.35321715986284</longitude>
+				<latitude>36.53220957753012</latitude>
+				<altitude>0</altitude>
+				<heading>-1.610155807490905e-14</heading>
+				<tilt>0</tilt>
+				<range>338.1034892264916</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-87.3526696186595,36.53267310444762,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Subway</name>
+			<LookAt>
+				<longitude>-87.35310653853452</longitude>
+				<latitude>36.53271038820511</latitude>
+				<altitude>0</altitude>
+				<heading>-3.180554681463516e-15</heading>
+				<tilt>0</tilt>
+				<range>615.0293452193027</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-87.35401683070855,36.53404929456685,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Papa John&apos;s</name>
+			<LookAt>
+				<longitude>-87.35310653853448</longitude>
+				<latitude>36.53271038820511</latitude>
+				<altitude>0</altitude>
+				<heading>1.093315671753084e-14</heading>
+				<tilt>0</tilt>
+				<range>615.0293452193027</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-87.35396118819952,36.53303749273179,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Chic-Fil-A</name>
+			<LookAt>
+				<longitude>-87.35310653853448</longitude>
+				<latitude>36.53271038820511</latitude>
+				<altitude>0</altitude>
+				<heading>1.093315671753084e-14</heading>
+				<tilt>0</tilt>
+				<range>615.0293452193027</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-87.35399658860629,36.53309031733697,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Einstein&apos;s Bagels</name>
+			<LookAt>
+				<longitude>-87.35310653853448</longitude>
+				<latitude>36.53271038820511</latitude>
+				<altitude>0</altitude>
+				<heading>1.093315671753084e-14</heading>
+				<tilt>0</tilt>
+				<range>615.0293452193027</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-87.35400164454747,36.53299685798051,0</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>
