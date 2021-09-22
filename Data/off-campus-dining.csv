@@ -1,25 +1,25 @@
-name,x,y,location,hours,hours_category
-Church's Chicken,-87.3663795,36.5314321,Off-Campus,10am-9pm,Morning to Night
-Kelly's Big Burger,-87.3661559,36.5308334,Off-Campus,24hrs,All Day
-Johnny's Big Burger,-87.3577491,36.5307805,Off-Campus,7am-10pm,Morning to Night
-Revel House Pub and Eatery,-87.3557491,36.5299201,Off-Campus,4pm-12am,Evening to Early Morning
-JibBop Grill,-87.3555683,36.5296631,Off-Campus,12pm-8pm,Afternoon to Night
-Plumb Line Coffee,-87.3555744,36.5294181,Off-Campus,7:30am-6pm,Morning to Evening
-Mediterranean Grill,-87.3553614,36.5290255,Off-Campus,11am-8pm,Afternoon to Night
-Wicked Good Sandwiches,-87.3540173,36.5222972,Off-Campus,10am-8pm,Morning to Night
-Cole's Coffee,-87.3502541,36.527281,Off-Campus,8am-5pm,Morning to Evening
-Na Na's Soul Food Meals,-87.3468732,36.5321455,Off-Campus,12pm-6pm,Afternoon to Evening
-Keondra's Restaurant,-87.3469867,36.5308023,Off-Campus,12pm-6:30pm,Afternoon to Evening
-Uncle Settle's Fish Chicken and More,-87.3467493,36.5309443,Off-Campus,11am-7pm,Afternoon to Night
-The Woodshed Diner,-87.3467199,36.5330395,Off-Campus,11am-6:30pm,Afternoon to Evening
-Silkes Old World Breads Bakery,-87.3414025,36.5354753,Off-Campus,9:30am-5pm,Morning to Evening
-White House Dairy Freeze,-87.3448538,36.5341437,Off-Campus,7am-10pm,Morning to Night
-Strawberry Alley Ale Works,-87.3624487,36.5280232,Off-Campus,10:30am-10pm,Afternoon to Night
-Madeleine - French Bakery,-87.3624956,36.5276359,Off-Campus,9am-7pm,Morning to Night
-Edwards Steakhouse,-87.3622122,36.5275846,Off-Campus,4:30pm-9pm,Evening to Night
-Yada on Franklin,-87.3619783,36.5274699,Off-Campus,9am-8pm,Morning to Evening
-Tarboosh Mediterranean Cuisine,-87.3618816,36.5276833,Off-Campus,2pm-2am,Afternoon to Early Morning
-Fanelli's Deli + Market,-87.3614895,36.5271777,Off-Campus,10am-6pm,Morning to Evening
-Hot Pita,-87.3609325,36.5274006,Off-Campus,8am-5pm,Morning to Evening
-Kimo's Hawaiian Grill,-87.3616446,36.5276875,Off-Campus,11am-8:30pm,Afternoon to Night
-Blackhorse Pub and Brewery,-87.3610256,36.5273773,Off-Campus,Temporarily closed,Temporarily closed
+ ,x,y,location,hours,hours_category
+Church's Chicken,-87.364326,36.531397,Off-Campus,10am-9pm,Morning to Night
+Kelly's Big Burger,-87.363964,36.530819,Off-Campus,24hrs,All Day
+Johnny's Big Burger,-87.355566,36.530837,Off-Campus,7am-10pm,Morning to Night
+Revel House Pub and Eatery,-87.353491,36.529939,Off-Campus,4pm-12am,Evening to Early Morning
+JibBop Grill,-87.353383,36.529660,Off-Campus,12pm-8pm,Afternoon to Night
+Plumb Line Coffee,-87.353387,36.529417,Off-Campus,7:30am-6pm,Morning to Evening
+Mediterranean Grill,-87.353172,36.529020,Off-Campus,11am-8pm,Afternoon to Night
+Wicked Good Sandwiches,-87.351828,36.522301,Off-Campus,10am-8pm,Morning to Night
+Cole's Coffee,-87.348066,36.527283,Off-Campus,8am-5pm,Morning to Evening
+Na Na's Soul Food Meals,-87.344670,36.532106,Off-Campus,12pm-6pm,Afternoon to Evening
+Keondra's Restaurant,-87.344833,36.530855,Off-Campus,12pm-6:30pm,Afternoon to Evening
+Uncle Settle's Fish Chicken and More,-87.344608,36.530990,Off-Campus,11am-7pm,Afternoon to Night
+The Woodshed Diner,-87.344532,36.533017,Off-Campus,11am-6:30pm,Afternoon to Evening
+Silkes Old World Breads Bakery,-87.339214,36.535480,Off-Campus,9:30am-5pm,Morning to Evening
+White House Dairy Freeze,-87.342660,36.534175,Off-Campus,7am-10pm,Morning to Night
+Strawberry Alley Ale Works,-87.360260,36.527989,Off-Campus,10:30am-10pm,Afternoon to Night
+Madeleine - French Bakery,-87.360355,36.527625,Off-Campus,9am-7pm,Morning to Night
+Edwards Steakhouse,-87.359974,36.527447,Off-Campus,4:30pm-9pm,Evening to Night
+Yada on Franklin,-87.359792,36.527478,Off-Campus,9am-8pm,Morning to Evening
+Tarboosh Mediterranean Cuisine,-87.359632,36.527512,Off-Campus,2pm-2am,Afternoon to Early Morning
+Fanelli's Deli + Market,-87.359358,36.527358,Off-Campus,10am-6pm,Morning to Evening
+Hot Pita,-87.358768,36.527477,Off-Campus,8am-5pm,Morning to Evening
+Kimo's Hawaiian Grill,-87.359457,36.527689,Off-Campus,11am-8:30pm,Afternoon to Night
+Blackhorse Pub and Brewery,-87.358884,36.527452,Off-Campus,Temporarily closed,Temporarily closed
