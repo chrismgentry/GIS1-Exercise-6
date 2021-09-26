@@ -1,0 +1,295 @@
+---
+title: "Exercise 6: Creating Point Data <br><small>Geographic Information Systems 1 Lab</small></br>"
+author: "GEOG 3150"
+output:
+  html_notebook:
+    df_print: paged
+    rows.print: 10
+    theme: cosmo
+    highlight: breezedark
+    number_sections: yes
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: yes
+  pdf_document: default
+  html_document:
+    toc: yes
+    df_print: paged
+editor_options:
+  chunk_output_type: inline
+  mode: gfm
+---
+
+```{=html}
+<style type="text/css">
+
+h1.title {
+  font-size: 40px;
+  font-family: "Times New Roman", Times, serif;
+  color: DarkBlue;
+  text-align: center;
+}
+h4.author { /* Header 4 - and the author and data headers use this too  */
+  font-size: 20px;
+  font-family: "Times New Roman", Times, serif;
+  color: DarkBlue;
+  text-align: center;
+}
+
+.zoom {
+  transform-origin: 40% 50% 0;
+  transition: transform .2s;
+  margin: 0 auto;
+}
+.zoom img{
+	width:auto;
+	height:auto;	
+}
+.zoom:hover {
+  transform: scale(2);
+}
+
+th, td {padding: 5px;}
+
+</style>
+```
+<hr></hr>
+
+The purpose of this exercise is to teach methods of creating point data for display in various programs. These skills will help you understand the foundation of point data, creation of new point datasets, and editing attribute tables.
+
+# The Introduction
+
+A recent survey was sent to new students at APSU to determine what information they felt was missing in their new student orientation packets. One of the most common responses was that while there is enough dining options on campus, the students were not always aware of where certain options were located. Additionally, students were also interested in dining options were located close to campus. So the [APSU Dining Services](https://www.apsu.edu/dining/index.php) director has asked you to develop a map specific to dining locations in and around campus. On this map the director would like to see the name of each point, a way to determine if it is part of Dining Services or an off-campus location (think about symbology), and some method of listing their hours of operation. They provided a list of campus dining locations and convenience stores [here](https://dineoncampus.com/apsu/hours-of-operation). Off campus dining should be within walking distance (~1mi). A dataset for this has been developed by obtaining location information from [other sources](https://www.google.com/search?rlz=1C1GCEU_enUS880US880&tbs=lf:1,lf_ui:9&tbm=lcl&sxsrf=AOaemvIjLEw11Ti6yVkpO2bynAOhhlsQMA:1631811609395&q=dining+near+me&rflfq=1&num=10&ved=2ahUKEwjOs8X6-4PzAhWmSPEDHU7vCjUQtgN6BAgMEAc#rlfi=hd:;si:;mv:[[36.54333655278211,-87.33321681176771],[36.517956229819426,-87.37012400781263],null,[36.530647432362045,-87.35167040979017],15]). However, if there is missing information from this list you should feel free to append the data.
+
+In this exercise you will:
+
+-   Learn to create point data
+-   Work with external datasets that contain x,y data
+-   Edit and add information to the attribute table
+-   Optionally work to:
+    -   Develop multi-part symbology
+    -   Add tables to a map
+
+Software specific directions can be found for each step below. Please submit the answer to the questions and your final map by the due date.
+
+## Step One: The Data
+
+You will need to use aerial imagery for this exercise in order to identify the dining locations on and off campus. The information contained in the link in the introduction should provide you all of the basic information. Adding Montgomery County or the county/state datasets for Tennessee from previous exercises might help to provide location information but is not necessarily required. 
+
+<details>
+<summary><big>View Directions in <b> [ArcGIS Pro]{style="color:#ff4500"} </b></big></summary>
+
+Blah...blah...blah...
+
+<big><b>Question No. 1</b></big>
+<blockquote>
+_Insert Text Here_
+</blockquote>
+
+</details>
+<hr></hr>
+
+<details>
+<summary><big>View directions in <b> [QGIS]{style="color: #006400"} </b></big></summary>
+
+In [Exercise 4, Step 2](https://chrismgentry.github.io/GIS1-Exercise-4/#12_Step_Two:_The_Analyses) you added a remote connection to satellite imagery using the **XYZ Tiles** of the _Browser Pane_. Because this exercise will rely heavily on having accessible imagery you will begin by adding several other remote connections. This way you have options as to which imagery works best for this exercise. Remember in [Exercise 4](https://chrismgentry.github.io/GIS1-Exercise-4/#12_Step_Two:_The_Analyses) you needed to right/CRTL-click on **XYZ Tiles** and add a "New Connection". Below is the URLs you need to use for each connection:
+
+| **Service** | **Provider** | **URL** | **Appx. Max Scale** |
+| ----------- | ------------ | ------- | ------------------- |  
+| Satellite Imagery | Bing | http://ecn.t3.tiles.virtualearth.net/tiles/a{q}.jpeg?g=1 | 1:1 |
+| Satellite Imagery | ESRI | https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x} | 1:1 |
+| Street Map | [OpenStreetMap](https://www.openstreetmap.org/) | https://tile.openstreetmap.org/{z}/{x}/{y}.png | 1:1 |
+| Topographic Map | [OpenStreetMap](https://www.openstreetmap.org/) | https://tile.opentopomap.org/{z}/{x}/{y}.png | 1:3400 |
+
+You will be using one of the services above to locate the on and off-campus dining locations so take some time to <u>add each one to your layers and examine the area surrounding campus</u>. It is up to you to choose which type of imagery is best used for the data creation as well as the final map for this assignment.
+
+Once you have selected the imagery you plan to use, click _Layer > Create Layer > New Shapefile Layer_ to create a new shapefile dataset. In the resulting window, click on the browse button <img src= "Images/qgis-file-location-button.jpg" alt="Browse for file location" width="20" height="20"> to give your shapefile a new name and save it in your project folder. 
+
+<p align="center"><div class="zoom"><img src= "Images/qgis-new-shapefile-layer.png" alt="New Shapefile Layer" style="width:100%"></div></p>
+
+For the rest of the options use the following settings:
+
+- File encoding = UTF-8
+- Geometry type = Point
+- Additional dimensions = None, EPSG:4326 - WGS 84
+- New Field
+  - Name = Name
+  - Type = TextData
+  - Length = 80
+
+<p align="center"><div class="zoom"><img src= "Images/qgis-new-shapefile-layer-dialog.png" alt="New Shapefile Layer Box" style="width:100%"></div></p>
+
+Because you will be creating a series of points the geometry should be set to point. However, you would take these same steps to create a multipoint, line, or polygon shapefile as well. The UTF-8 encoding allows for the dataset to be used on Windows of Mac OS systems which enables the possibility of sharing the data. After adding the information for the New Field click the button to **Add to Fields List** to add a field called "Name" to your dataset and click OK.
+
+This will create a new dataset in your layers that allows you to add additional point information. With the new dataset selected, begin by either right/CRTL clicking on the new data layer or clicking the pencil icon <img src= "Images/qgis-toggle-editing-button.jpg" alt="Toggle Editing" width="20" height="20"> to _Toggle Editing_. This will make the new layer editable. Next, click on the **Add Point Feature** button <img src= "Images/qgis-add-point-feature-button.jpg" alt="Add Point Feature" width="20" height="20"> and notice as your cursor becomes a target.
+
+<p align="center"><div class="zoom"><img src= "Images/qgis-edit-new-shapefile.png" alt="Adding Point Data" style="width:100%"></div></p>
+
+Place the target over the Woodward Library building _roughly_ where the [Starbucks](https://www.starbucks.com/store-locator/store/87005/austin-peay-state-university-601-college-st-clarksville-tn-370440001-us) is located and click. In the resulting window give this location attributes where the **id = 1** and the **Name = Starbucks** and click OK. You will notice a new point that appears on the map and your cursor will return to a target like appearance. This created point data representing Starbucks and is uniquely identified by the ID and Name variables. Repeat this process and create points for all of the on-campus dining locations and convenience stores (~12). For the ID field continue to increase the number by one each time and for the Name field type in the name of the location you are depicting. When you have finished the last data point, click the _Save Layer Edits_ button <img src= "Images/qgis-save-layer-edits-button.jpg" alt="Save Layer Edits" width="20" height="20"> and toggle editing for that layer off by clicking the toggle button <img src= "Images/qgis-toggle-editing-button.jpg" alt="Toggle Editing" width="20" height="20">.
+
+With the on-campus locations created you could also use the same steps to create the off-campus location. However, sometimes you will find that collaborators send you information in the form of a spreadsheet or some other format such as **keyhole markup langauge** (KML) from Google Earth or a KMZ which is a compressed version of a KML. In [Exercise 5, Step 2](https://chrismgentry.github.io/GIS1-Exercise-5/#12_Step_Two:_The_Analyses) you learned how to import a \*.csv file without geometry (meaning there were no X and Y values for locations). If the \*.csv file has variables for a location, such as longitude and latitude or UTM, you can simply choose "Point Coordinate" and provide the fields where the XY data is located. However, with a useful QGIS plug-in you have the ability to import some data directly from a URL depending on the format. Similar to [Exercise 5, Step 4](https://chrismgentry.github.io/GIS1-Exercise-5/#14_Step_Four:_The_County_Commisson_Report), go to **Plugins > Manage and Install Plugins** on the menu bar and search for **MMQGIS** and install the plug-in.
+
+<p align="center"><img src= "Images/mmqgis-plugin-page.png" alt="MMQGIS" style="width:85%"></p>
+
+On the menu bar you will see a new option for MMQGIS available. Click _MMQGIS > Import/Export > Geometry Import from CSV File_ and in the resulting window use the following options and click apply:
+
+- Input CSV Nodes File = https://raw.githubusercontent.com/chrismgentry/GIS1-Exercise-6/main/Data/off-campus-dining.csv
+- Geometry type = Point
+- Shape ID Field = name
+- Part ID Field = (this should be grayed out and not accessible)
+- Latitude Field = y
+- Longitude Field = x
+- Output File Name = In this field click on the browse button to give the new file a name and save it to your project folder
+
+<p align="center"><div class="zoom"><img src= "Images/mmqgis-import-dialog.png" alt="Importing CSV File with MMQGIS" style="width:100%"></div></p>
+
+The resulting import should have placed another 24 data points on your map. You can use right/CRTL click and "Zoom to Layer" on the new layer to see all of the new points (colors my vary).
+
+<p align="center"><div class="zoom"><img src= "Images/qgis-off-campus-import.png" alt="Imported CSV Points" style="width:100%"></div></p>
+
+<big><b>Question No. 1</b></big>
+<blockquote>
+Which on-campus location is the last to close on a Saturday night? What other variables were included in the off-campus points that weren't included in the on-campus data you created?
+</blockquote>
+
+</details>
+<hr></hr>
+
+<details><summary><big>View directions in <b> [R]{style="color: #6495ED"} </b></span></big></summary>
+Before you begin, you will need to open the [Ex2 Colab Notebook](https://github.com/chrismgentry/GIS1-Exercise-6/blob/main/GIS1_EX6.ipynb) and insert **tocolab** after _github_ in the URL to open in the _Colab Environment_. As you have seen before, R requires various packages to complete certain analyses. In this exercise you will be using **tidyverse, OpenStreetMaps, ggfortify, maptools, and rgeos**. To install and load the packages we will use the following script:
+
+Blah...blah...blah...
+
+<big><b>Question No. 1</b></big>
+<blockquote>
+_Insert Text Here_
+</blockquote>
+
+</details>
+
+## Step Two: The Analyses
+
+Blah...blah...blah...
+
+<details>
+<summary><big>View Directions in <b> [ArcGIS Pro]{style="color:#ff4500"} </b></big></summary>
+
+Blah...blah...blah...
+
+<big><b>Question No. 2</b></big>
+<blockquote>
+_Insert Text Here_
+</blockquote>
+
+</details>
+<hr></hr>
+
+<details>
+<summary><big>View Directions in <b> [QGIS]{style="color:#006400"} </b></big></summary>
+
+ADDING INFORMATION TO THE ATTRIBUTE TABLE
+
+<big><b>Question No. 2</b></big>
+<blockquote>
+_Insert Text Here_
+</blockquote>
+
+</details>
+<hr></hr>
+
+<details>
+<summary><big>View Directions in <b> [R]{style="color:#6495ED"} </b></big></summary>
+
+Blah...blah...blah...
+
+<big><b>Question No. 2</b></big>
+<blockquote>
+_Insert Text Here_
+</blockquote>
+
+</details>
+
+## Step Three: The Visualization
+
+Blah...blah...blah...
+
+<details><summary><big>View directions in <b> [ArcGIS Pro]{style="color:#ff4500"} </b></span></big></summary>
+
+Blah...blah...blah...
+
+<big><b>Question No. 3</b></big>
+<blockquote>
+_Insert Text Here_
+</blockquote>
+
+</details>
+<hr></hr>
+
+<details><summary><big>View directions in <b> [QGIS]{style="color:#006400"} </b></span></big></summary>
+
+Blah...blah...blah...
+
+<big><b>Question No. 3</b></big>
+<blockquote>
+_Insert Text Here_
+</blockquote>
+
+</details>
+<hr></hr>
+
+<details><summary><big>View directions in <b> [R]{style="color:#6495ED"} </b></span></big></summary>
+
+Blah...blah...blah...
+
+<big><b>Question No. 3</b></big>
+<blockquote>
+_Insert Text Here_
+</blockquote>
+
+</details>
+
+## Step Four: The Proposal
+
+Blah...blah...blah...
+
+<details><summary><big>View directions in <b> [ArcGIS Pro]{style="color:#ff4500"} </b></span></big></summary>
+
+Blah...blah...blah...
+
+<big><b>Question No. 4</b></big>
+<blockquote>
+_Insert Text Here_
+</blockquote>
+
+</details>
+<hr></hr>
+
+<details><summary><big>View directions in <b> [QGIS]{style="color:#006400"} </b></span></big></summary>
+
+Blah...blah...blah...
+
+<big><b>Question No. 4</b></big>
+<blockquote>
+_Insert Text Here_
+</blockquote>
+
+</details>
+<hr></hr>
+
+<details><summary><big>View directions in <b> [R]{style="color:#6495ED"} </b></span></big></summary>
+
+Blah...blah...blah...
+
+<big><b>Question No. 4</b></big>
+<blockquote>
+_Insert Text Here_
+</blockquote>
+
+</details>
+
+# The Write-Up
+
+Blah...blah...blah...
+
+When complete, send a link to your _Colab Notebook_ or word document with answers to Questions 1-4 and your completed map via email.
