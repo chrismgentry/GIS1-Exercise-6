@@ -150,7 +150,7 @@ The resulting import should have placed another 24 data points on your map. You 
 
 <big><b>Question No. 1</b></big>
 <blockquote>
-Which on-campus location is the last to close on a Saturday night? What other variables were included in the off-campus points that weren't included in the on-campus data you created?
+_Which on-campus location is the last to close on a Saturday night? What other variables were included in the off-campus points that weren't included in the on-campus data you created?_
 </blockquote>
 
 </details>
@@ -170,7 +170,7 @@ _Insert Text Here_
 
 ## Step Two: The Analyses
 
-Blah...blah...blah...
+With datasets for both on-campus and off-campus created, in this step you will edit the attribute table to provide options for categorizations when making the final map.
 
 <details>
 <summary><big>View Directions in <b> [ArcGIS Pro]{style="color:#ff4500"} </b></big></summary>
@@ -188,11 +188,23 @@ _Insert Text Here_
 <details>
 <summary><big>View Directions in <b> [QGIS]{style="color:#006400"} </b></big></summary>
 
-ADDING INFORMATION TO THE ATTRIBUTE TABLE
+Now that you have your two datasets it makes sense to merge them into one combined file. In the _Processing Toolbox_ or in _Vector > Data Management Tools > Merge Vecor Layers_ on the menu bar, open the processing tool to create a merged dataset.
+
+<p align="center"><div class="zoom"><img src= "Images/qgis-merge.png" alt="Merge Vector Layers" style="width:100%"></div></p>
+
+In the **Merge Vector Layers** dialog box click browse button <img src= "Images/qgis-file-location-button.jpg" alt="Browse for file location" width="20" height="20"> to select the input layers. Using the select all button or by checking the boxes next to each layer, select the on and off campus datasets and click the _Go Back_ button <img src= "Images/qgis-go-back-button.jpg" alt="Go Back Button" width="20" height="20"> to return to the main merge menu. To save the dataset as a permanent file click the browse button <img src= "Images/qgis-file-location-button.jpg" alt="Browse for file location" width="20" height="20"> in the _Merged_ option and select "Save to File..." Remember to save it in your project folder.
+
+With the newly merged dataset added to your layers, open the attribute table to examine the output.
+
+<p align="center"><div class="zoom"><img src= "Images/qgis-merged-attribute-tables.png" alt="Merge Vector Layer Attribute Table" style="width:100%"></div></p>
+
+Notice that the variables from each dataset are now included in the full table. However, because each attribute table had varying data some of the cells are filled will _NULL_ values. To edit these values click on the toggle editing button <img src= "Images/qgis-toggle-editing-button.jpg" alt="Toggle Editing" width="20" height="20"> <u>on the attribute table</u> and you will be able to click within each _NULL_ value cell and edit the information. For this exercise focus on completing the ID (simply number them 1-36), location (off-campus or on-campus), hours, and hours_cate (short for category) columns. The X and Y columns are completed for the off-campus locations because the information was included in the initial \*.csv file. When you created the on-campus locations that data is not specifically recorded in the attribute table. So don't worry about adding that information into the table as it is very unlikely it will be useful for the visualization.
+
+If you are interested in creating an additional field to provide further data about the locations (type of food, dining atmosphere, etc.) you can click the **New Field** button while editing is toggled on in the attribute table to make a new field. In the window give the field a _name_, _type_ such as integer, decimal, text, date, etc., _length_ which is the number of "characters" for any non text or integer value, and/or _precision_ which is the number of places to the right of the decimal. Think about categories you can create that might be useful in your visualization.
 
 <big><b>Question No. 2</b></big>
 <blockquote>
-_Insert Text Here_
+_Based on  date in the attribute table, how many locations would not be an option at 3pm this afternoon?_
 </blockquote>
 
 </details>
@@ -212,7 +224,7 @@ _Insert Text Here_
 
 ## Step Three: The Visualization
 
-Blah...blah...blah...
+In this step you will use previous examples and your own design concepts to create a visualization that can be distributed by APSU Dining Services to students as part of their "Welcome to Campus" packet when they arrive in the fall. You may need to use various inset maps or other methods to ensure all locations can be viewed.
 
 <details><summary><big>View directions in <b> [ArcGIS Pro]{style="color:#ff4500"} </b></span></big></summary>
 
@@ -228,11 +240,21 @@ _Insert Text Here_
 
 <details><summary><big>View directions in <b> [QGIS]{style="color:#006400"} </b></span></big></summary>
 
-Blah...blah...blah...
+Unlike previous exercises, there will not be an example provided of how this map could be made. Because there is a large number and variety of data points you will need to think about how to create the most useful visualization possible for dining services. However, in [Exercise 4, Step 4](https://chrismgentry.github.io/GIS1-Exercise-4/#14_Step_Four:_Your_Turn) you used a more advanced labeling feature to filter out and add labels to specific locations to the map. This process skipped over the basic steps for labeling data. While you could use the more advance rule-based labeling for this, here is how you produce basic labels for a given dataset. 
+
+Right/CRTL click on the dataset you wish to label can select the properties menu. Navigate to the Labels tab on the left and select **Single Labels** from the drop-down menu at the top of the window. 
+
+<p align="center"><div class="zoom"><img src= "Images/qgis-labeling-options.png" alt="Single Labels" style="width:100%"></div></p>
+
+This will provide a number of options for label customizations once you select the **Value** or the field you want to be used for the labels. In this case you want to select _name_. Now you can move through the various options on the left such as _text_, _formatting_, _buffer_, _mask_, _background_, _shadow_, etc. to design a style of labeling that is appropriate for display on your map.
+
+One last option for this visualization is to change the opacity of the background imagery. Depending on the background that was selected, the intensity or variation in the color or texture can make it difficult to visualize some overlays. By right/CRTL clicking on the background imagery layer and selecting **Transparency** you can change the _Global Opacity_ value to adjust how the layer is displayed. This might help with the legibility of the labels.
+
+Because of the difficulties with label organization on various maps, some cartographers prefer to manually label items so their precise positioning can be controlled better than if placed by the software.
 
 <big><b>Question No. 3</b></big>
 <blockquote>
-_Insert Text Here_
+_By changing the labeling options, describe the difference between what **mask** and **buffer** do._
 </blockquote>
 
 </details>
@@ -249,9 +271,9 @@ _Insert Text Here_
 
 </details>
 
-## Step Four: The Proposal
+## Step Four: Culinary Cartography
 
-Blah...blah...blah...
+After reviewing the information you have collected with the APSU Dining Services Director, they have given you full control of the final design of the map but asked that you include and APSU logo on the map. To download official logos for the university you must go do [http://aspire.apsu.edu](http://aspire.apsu.edu) and click the login link in the upper right corner. Using the APSU Login link, enter your OneStop username/password and click login. On the ASPIRE Homepage click the link for Public Relations and Marketing under the Communities heading in the center of the page. Under "Recent Submissions" you will find a number of different logos to choose from. Select the one you would like to use and click on the link. Finally select either the JPEG or PNG version of the logo and right/CRTL click on the corresponding view/open link to download to your project folder. Once you have the logo you can log out.
 
 <details><summary><big>View directions in <b> [ArcGIS Pro]{style="color:#ff4500"} </b></span></big></summary>
 
@@ -267,11 +289,35 @@ _Insert Text Here_
 
 <details><summary><big>View directions in <b> [QGIS]{style="color:#006400"} </b></span></big></summary>
 
-Blah...blah...blah...
+Although the final design of the dining map will be up to you, there are a couple techniques which might be helpful in trying to visually organize the data on the layout screen. In [Exercise 4, Step 3](https://chrismgentry.github.io/GIS1-Exercise-4/#13_Step_Three:_The_Visualization) you learned how to create an inset map that provided a small scale view of the dataset. Insets can also be used to view clustered data in a large scale view. For example, in the sample images above you can see a few distinct dining clusters that could be placed in a larger scale inset to provide additional legibility. Following similar steps to [Exercise 4, Step 3](https://chrismgentry.github.io/GIS1-Exercise-4/#13_Step_Three:_The_Visualization) you can create an inset for the locations along University Ave. In this case, because the inset is at a larger scale than the primary map, you can have [QGIS]{style="color:#006400"} create an **overview** to highlight the inset location.
+
+After creating the large scale inset on your layout, right/CRTL click on the primary map and select _Item Properties_. Scroll down to **Overviews** and click the drop-down arrow.
+
+<p align="center"><div class="zoom"><img src= "Images/qgis-overviews.png" alt="Creating Overviews" style="width:100%"></div></p>
+
+With _Overview_ open, click the green plus button and select your map inset map. With the draw overview box checked you should see a highlighted area on the primary map of where the inset is located. 
+
+<p align="center"><div class="zoom"><img src= "Images/qgis-overview-map.png" alt="Overview Map Styling" style="width:100%"></div></p>
+
+If you were to create multiple overviews you could simply add some identifying text like a capital letter A in matching boxes and B in the second boxes or create some other way to identify which inset connects to which area. 
+
+Additionally, there are times you may want to add a table to your map. Suppose you would want to add the attribute table information to the inset you just created to use the IDs as the location indicators and allow the users to scan the table for specific information. This can be accomplished by clicking the **Add attribute table** button <img src= "Images/qgis-add-attribute-table-button.jpg" alt="Add attribute table" width="20" height="20"> in the layout and drawing a square on the map. Once loaded the entire attribute table will overwhelm the map. However, this can be adjusted by selecting the attribute table and opening the item properties.
+
+With the Source set as "Layer Features" and the Layer set as the merged dataset you created above you should be able to click the **Attributes...** to open a _Select Attributes_ window. Using the up, down, add, and remove boxes you can select the data you would like to remove from the map table or add additional rows. Next you need to click the box for "Show only features visible within a map" and select your inset in the linked map options.
+
+<p align="center"><div class="zoom"><img src= "Images/qgis-add-table-options.png" alt="Add Table" style="width:100%"></div></p>
+
+Once you have the data linked, you can scroll down and adjust all of the options to format the table to fit your design before closing the item properties.
+
+<p align="center"><div class="zoom"><img src= "Images/qgis-table-added.png" alt="Table Styling" style="width:100%"></div></p>
+
+While tables are not required and should be used sparingly, they can be used to help provide additional information regarding the data that cannot be displayed through labels. However, there are always ways to create symbology that can hold multiple attributes simultaneously as discussed in lecture.
+
+Finally, to add the APSU logo to your layout, click the **Add Picture** button <img src= "Images/qgis-add-image-button.png" alt="Add picture" width="20" height="20"> and draw a square on the map to place the object. Open the item properties to make any necessary adjustments.
 
 <big><b>Question No. 4</b></big>
 <blockquote>
-_Insert Text Here_
+_On a map with the primary as large scale and the inset as small scale which map would you select to set the overview?_
 </blockquote>
 
 </details>
@@ -290,6 +336,9 @@ _Insert Text Here_
 
 # The Write-Up
 
-Blah...blah...blah...
+In the presentation of the map you provide to the APSU Dining Services Director please provide the following information:
 
-When complete, send a link to your _Colab Notebook_ or word document with answers to Questions 1-4 and your completed map via email.
+- Discuss the challenges you encountered mapping the data.
+- Describe what information that was not immediately available (if any) that could have helped you create a better product.
+
+When complete, send a link to your _Colab Notebook_ or word document with answers to Questions 1-4, the write-up, and your completed map via email.
