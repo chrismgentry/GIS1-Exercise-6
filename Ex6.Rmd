@@ -80,11 +80,55 @@ You will need to use aerial imagery for this exercise in order to identify the d
 <details>
 <summary><big>View Directions in <b> [ArcGIS Pro]{style="color:#ff4500"} </b></big></summary>
 
-Blah...blah...blah...
+After creating your project folder for this exercise, begin by going to _Map Tab > Basemap > Imagery_ to change the basemap applied to the project to a satellite image of North America.
+
+<p align="center"><div class="zoom"><img src= "Images/arcgis-imagery-basemap.png" alt="Add Imagery Basemap" style="width:100%"></div></p>
+
+With this imagery now set as your basemap, you need to create a new dataset to store the point data you will create for this exercise. To do this you should navigate to the _View Tab_ and click on the _Catalog Pane_. This will open a new pane to the right of the screen with a series of folders and drop-down menus. Use the drop-down next to **Folders** to view the folder you created for this exercise. Next, right-click on that folder and click _New > Shapefile_. This will open a new **Create Feature Class** pane where you will provide the following information and click Run:
+
+- Feature Class Location = Make sure it is directed to your project folder
+- Feature Class Name = Give your new shapefile a name like _on_campus_dining_
+- Geometry Type = Point
+  - Template Dataset = Leave this blank as we will not use it for this exercise
+- Has M = No
+- Has Z = No
+- Coordinate System = Current Map or WGS_1984_Web_Mercator_Auxillary_Sphere
+- Feature Class Alias = Leave blank
+
+This is the same process you would take if creating a _multipoint_, _polygon_, _polyline_ (line), or _multipatch_ dataset. 
+
+<p align="center"><div class="zoom"><img src= "Images/arcgis-new-shapefile.png" alt="Create New Shapefile" style="width:100%"></div></p>
+
+After clicking _Run_ the new shapefile should have been added to your table of contents. If not add it now and zoom in on the imagery basemap to campus. If you are unable to find campus you can use the **Go To XY** button on the _Map Tab_ and type in the following coordinates: -87.35, 36.53 and use _Flash Location_ to find Clarksville, TN.
+
+<p align="center"><div class="zoom"><img src= "Images/arcgis-on-campus-dining-shp.png" alt="New Shapefile" style="width:100%"></div></p>
+
+Now that you have the dataset created you can begin to add data points. Start by navigating to the _Edit Tab_ and click on the drop-down beneath **Snapping** and select _Snapping Settings..._. Snapping tolerance sets the distance at which two points will be snapped together. This is really important when trying to close/avoid closing a polygon. In this case it might not make much of a difference though there are some on campus points in the Morgran University Center that could be fairly close together. In the _Snapping Settings_ window, chage the XY tolerance to 3 map units and click OK. Next, click on the **Create** button. In the _Create Features_ pane that opens on the right of the screen click on the "Create a point feature" button <img src= "Images/arcgis-create-point-feature-button.jpg" alt="Create new point feature" width="20" height="20"> and notice that your cursor now become a cross hairs. Place the target over the Woodward Library building _roughly_ where the [Starbucks](https://www.starbucks.com/store-locator/store/87005/austin-peay-state-university-601-college-st-clarksville-tn-370440001-us) is located and click.
+
+<p align="center"><div class="zoom"><img src= "Images/arcgis-create-point.png" alt="Create New Data Point" style="width:100%"></div></p>
+
+The new data point should now appear on the library. Repeat this process and create points for all of the on-campus dining locations and convenience stores (~12). When you have created your final point, click the _Finish Sketch_ button <img src= "Images/arcgis-finish-sketch-button.jpg" alt="Finish Sketch Button" width="20" height="20"> and save the edits using the _Save_ button <img src= "Images/arcgis-edits-save-button.jpg" alt="Save Edits" width="20" height="20">. Now you can close the _Create_ pane.
+
+With the on-campus locations created you could also use the same steps to create the off-campus location. However, sometimes you will find that collaborators send you information in the form of a spreadsheet or some other format such as **keyhole markup language** (KML) from Google Earth or a KMZ which is a compressed version of a KML. In this case the data being shared is stored in a \*.csv file at the following URL:
+
+[https://raw.githubusercontent.com/chrismgentry/GIS1-Exercise-6/main/Data/off-campus-dining.csv](https://raw.githubusercontent.com/chrismgentry/GIS1-Exercise-6/main/Data/off-campus-dining.csv) (right-click and Save as...)
+
+Then from the _Map Tab_ click on the drop-down for the _Add Data_ button and select **XY Point Data**. In the _XY Table To Point_ pane input the following options and click Run.
+
+- Input Table = Navigate to the saved CSV file
+- Output Feature Class = Navigate to your project folder and save the file as a \*.shp file
+- X Field = x
+- Y Field = y
+- Z Field = Leave blank
+- Coordinate Systems - Leave as default
+
+<p align="center"><div class="zoom"><img src= "Images/arcgis-xy-point-data.png" alt="Create New Point Data from XY" style="width:100%"></div></p>
+
+The resulting process should have placed another 24 data points on your map. You can use right-click on the off-campus points and “Zoom to Layer” to see all of the new points (symbology my vary). 
 
 <big><b>Question No. 1</b></big>
 <blockquote>
-_Insert Text Here_
+_Which on-campus location is the last to close on a Saturday night? What other variables were included in the off-campus points that weren’t included in the on-campus data you created?_
 </blockquote>
 
 </details>
@@ -128,7 +172,7 @@ This will create a new dataset in your layers that allows you to add additional 
 
 Place the target over the Woodward Library building _roughly_ where the [Starbucks](https://www.starbucks.com/store-locator/store/87005/austin-peay-state-university-601-college-st-clarksville-tn-370440001-us) is located and click. In the resulting window give this location attributes where the **id = 1** and the **Name = Starbucks** and click OK. You will notice a new point that appears on the map and your cursor will return to a target like appearance. This created point data representing Starbucks and is uniquely identified by the ID and Name variables. Repeat this process and create points for all of the on-campus dining locations and convenience stores (~12). For the ID field continue to increase the number by one each time and for the Name field type in the name of the location you are depicting. When you have finished the last data point, click the _Save Layer Edits_ button <img src= "Images/qgis-save-layer-edits-button.jpg" alt="Save Layer Edits" width="20" height="20"> and toggle editing for that layer off by clicking the toggle button <img src= "Images/qgis-toggle-editing-button.jpg" alt="Toggle Editing" width="20" height="20">.
 
-With the on-campus locations created you could also use the same steps to create the off-campus location. However, sometimes you will find that collaborators send you information in the form of a spreadsheet or some other format such as **keyhole markup langauge** (KML) from Google Earth or a KMZ which is a compressed version of a KML. In [Exercise 5, Step 2](https://chrismgentry.github.io/GIS1-Exercise-5/#12_Step_Two:_The_Analyses) you learned how to import a \*.csv file without geometry (meaning there were no X and Y values for locations). If the \*.csv file has variables for a location, such as longitude and latitude or UTM, you can simply choose "Point Coordinate" and provide the fields where the XY data is located. However, with a useful QGIS plug-in you have the ability to import some data directly from a URL depending on the format. Similar to [Exercise 5, Step 4](https://chrismgentry.github.io/GIS1-Exercise-5/#14_Step_Four:_The_County_Commisson_Report), go to **Plugins > Manage and Install Plugins** on the menu bar and search for **MMQGIS** and install the plug-in.
+With the on-campus locations created you could also use the same steps to create the off-campus location. However, sometimes you will find that collaborators send you information in the form of a spreadsheet or some other format such as **keyhole markup language** (KML) from Google Earth or a KMZ which is a compressed version of a KML. In [Exercise 5, Step 2](https://chrismgentry.github.io/GIS1-Exercise-5/#12_Step_Two:_The_Analyses) you learned how to import a \*.csv file without geometry (meaning there were no X and Y values for locations). If the \*.csv file has variables for a location, such as longitude and latitude or UTM, you can simply choose "Point Coordinate" and provide the fields where the XY data is located. However, with a useful QGIS plug-in you have the ability to import some data directly from a URL depending on the format. Similar to [Exercise 5, Step 4](https://chrismgentry.github.io/GIS1-Exercise-5/#14_Step_Four:_The_County_Commisson_Report), go to **Plugins > Manage and Install Plugins** on the menu bar and search for **MMQGIS** and install the plug-in.
 
 <p align="center"><img src= "Images/mmqgis-plugin-page.png" alt="MMQGIS" style="width:85%"></p>
 
@@ -175,11 +219,26 @@ With datasets for both on-campus and off-campus created, in this step you will e
 <details>
 <summary><big>View Directions in <b> [ArcGIS Pro]{style="color:#ff4500"} </b></big></summary>
 
-Blah...blah...blah...
+Now that you have your two datasets it makes sense to merge them into one combined file. On the _Analysis Tab_, navigate through the _Tools_ to locate the **Merge** icon and click it. With the two layers selected in the table of contents, choose the following options in the _Merge_ pane and click Run.
+
+- Input Datasets = off_campus and on_campus dining
+- Output Dataset = Save the new \*.shp file with an appropriate name in your project folder
+- Field Map
+  - Output Fields
+    - Click on name
+    - In the source options click to "Add New Source"
+    - Click on the on_campus dataset and click the id field
+    - Click on _add selected_ in the lower right corner
+
+<p align="center"><div class="zoom"><img src= "Images/arcgis-merge-datasets.png" alt="Merge Vector Layers" style="width:100%"></div></p>
+
+Examining the attribute table for the merged dataset you will find that the data points you created have no information for the majority of the fields in the table. If you click on the corresponding square to the right of the FID for an individual row you can highlight the point you created and fille in the information for _name_, _location_, _hours_, and _hours_category_ by double clicking in each empty cell and typing the information. Then return to the _Edit Tab_ and save your edits.
+
+If you are interested in creating an additional field to provide further data about the locations (type of food, dining atmosphere, etc.) you can click the **Add Field** button <img src= "Images/arcgis-add-field-button.jpg" alt="Add Field" width="38" height="20"> at the top of the attribute table. In the window give the field a _name_, _data type_ like a numeric value (short, long, float, double) or date or text, _length_ which is the number of “characters” for any non text or integer value, and/or _precision_ which is the number of places to the right of the decimal. Think about categories you can create that might be useful in your visualization.
 
 <big><b>Question No. 2</b></big>
 <blockquote>
-_Insert Text Here_
+_Based on data in the attribute table, how many locations would not be an option at 3pm this afternoon?_
 </blockquote>
 
 </details>
@@ -204,7 +263,7 @@ If you are interested in creating an additional field to provide further data ab
 
 <big><b>Question No. 2</b></big>
 <blockquote>
-_Based on  date in the attribute table, how many locations would not be an option at 3pm this afternoon?_
+_Based on  data in the attribute table, how many locations would not be an option at 3pm this afternoon?_
 </blockquote>
 
 </details>
@@ -228,11 +287,19 @@ In this step you will use previous examples and your own design concepts to crea
 
 <details><summary><big>View directions in <b> [ArcGIS Pro]{style="color:#ff4500"} </b></span></big></summary>
 
-Blah...blah...blah...
+Unlike previous exercises, there will not be an example provided of how this map could be designed. Because there is a large number and variety of data points you will need to think about how to create the most useful visualization possible for dining services. However, in [Exercise 4, Step 4](https://chrismgentry.github.io/GIS1-Exercise-4/#14_Step_Four:_Your_Turn) you used a more advanced labeling feature to filter out and add labels to specific locations to the map. This process skipped over the basic steps for labeling data. While you could use the more advance rule-based labeling for this, here is how you produce basic labels for a given dataset. 
+
+Right-click on the layer you would like to have labeled and click **Labeling Properties...**. This will open the _Label Class_ pane for that dataset. In order to label a feature class you need to provide the field that will be used as the label. There are several ways to do this but in this exercise you will use either the Python or Arcade language. For Python you can double click on name or type [name] into the Expression box and click Apply or in Arcade you can use the $feature.name expression. You could also select from any other field by changing name above to the title of another field. From this pane you can also change the _Symbol_ or appearance of the text, or the _Position_ or placement of the label. When finished, be sure the **Label** button on the right-click menu is selected so the label will be visible.
+
+<p align="center"><div class="zoom"><img src= "Images/arcgis-label-properties.png" alt="Labeling Properties" style="width:100%"></div></p>
+
+Because of the difficulties with label organization on various maps, some cartographers prefer to manually label items so their precise positioning can be controlled better than if placed by the software.
+
+One last option for this visualization is to change the opacity of the background imagery. Depending on the background that was selected, the intensity or variation in the color or texture can make it difficult to visualize some overlays. By clicking on the background imagery layer and going to the _Layer > Appearance_ tab you can set the **Transparency** of the displayed layer. This might help with the legibility of some labels.
 
 <big><b>Question No. 3</b></big>
 <blockquote>
-_Insert Text Here_
+_Describe some of the issues with visualizing the default labels for the data points displayed on the map_
 </blockquote>
 
 </details>
@@ -240,7 +307,7 @@ _Insert Text Here_
 
 <details><summary><big>View directions in <b> [QGIS]{style="color:#006400"} </b></span></big></summary>
 
-Unlike previous exercises, there will not be an example provided of how this map could be made. Because there is a large number and variety of data points you will need to think about how to create the most useful visualization possible for dining services. However, in [Exercise 4, Step 4](https://chrismgentry.github.io/GIS1-Exercise-4/#14_Step_Four:_Your_Turn) you used a more advanced labeling feature to filter out and add labels to specific locations to the map. This process skipped over the basic steps for labeling data. While you could use the more advance rule-based labeling for this, here is how you produce basic labels for a given dataset. 
+Unlike previous exercises, there will not be an example provided of how this map could be designed. Because there is a large number and variety of data points you will need to think about how to create the most useful visualization possible for dining services. However, in [Exercise 4, Step 4](https://chrismgentry.github.io/GIS1-Exercise-4/#14_Step_Four:_Your_Turn) you used a more advanced labeling feature to filter out and add labels to specific locations to the map. This process skipped over the basic steps for labeling data. While you could use the more advance rule-based labeling for this, here is how you produce basic labels for a given dataset. 
 
 Right/CRTL click on the dataset you wish to label can select the properties menu. Navigate to the Labels tab on the left and select **Single Labels** from the drop-down menu at the top of the window. 
 
@@ -248,9 +315,9 @@ Right/CRTL click on the dataset you wish to label can select the properties menu
 
 This will provide a number of options for label customizations once you select the **Value** or the field you want to be used for the labels. In this case you want to select _name_. Now you can move through the various options on the left such as _text_, _formatting_, _buffer_, _mask_, _background_, _shadow_, etc. to design a style of labeling that is appropriate for display on your map.
 
-One last option for this visualization is to change the opacity of the background imagery. Depending on the background that was selected, the intensity or variation in the color or texture can make it difficult to visualize some overlays. By right/CRTL clicking on the background imagery layer and selecting **Transparency** you can change the _Global Opacity_ value to adjust how the layer is displayed. This might help with the legibility of the labels.
-
 Because of the difficulties with label organization on various maps, some cartographers prefer to manually label items so their precise positioning can be controlled better than if placed by the software.
+
+One last option for this visualization is to change the opacity of the background imagery. Depending on the background that was selected, the intensity or variation in the color or texture can make it difficult to visualize some overlays. By right/CRTL clicking on the background imagery layer and selecting **Transparency** you can change the _Global Opacity_ value to adjust how the layer is displayed. This might help with the legibility of some labels.
 
 <big><b>Question No. 3</b></big>
 <blockquote>
@@ -277,11 +344,26 @@ After reviewing the information you have collected with the APSU Dining Services
 
 <details><summary><big>View directions in <b> [ArcGIS Pro]{style="color:#ff4500"} </b></span></big></summary>
 
-Blah...blah...blah...
+Although the final design of the dining map will be up to you, there are a couple techniques which might be helpful in trying to visually organize the data on the layout screen. In [Exercise 4, Step 3](https://chrismgentry.github.io/GIS1-Exercise-4/#13_Step_Three:_The_Visualization) you learned how to create an inset map that provided a small scale view of the dataset. Insets can also be used to view clustered data in a large scale view. For example, in the sample images above you can see a few distinct dining clusters that could be placed in a larger scale inset to provide additional legibility. Following similar steps to [Exercise 4, Step 3](https://chrismgentry.github.io/GIS1-Exercise-4/#13_Step_Three:_The_Visualization) you can create an inset for the locations along University Ave. In this case, because the inset is at a larger scale than the primary map, you can have [ArcGIS Pro]{style="color:#ff4500"} create an **extent indicator** to highlight the inset location.
+
+After creating the large scale inset on your layout, select the primary map in the table of contents. Next, navigate to the _Insert Tab_ and click on the drop-down menu for _Extent Indicator_ and select the inset map. This will insert a rectangle over the area covered by the inset. The extent indicator now appears in your table of contents and can be styled according to your design asthetics.
+
+<p align="center"><div class="zoom"><img src= "Images/arcgis-extent-indicator.png" alt="Extent Indicator" style="width:100%"></div></p>
+
+If you were to create multiple extent indicators you could simply add some identifying text like a capital letter A in matching boxes and B in the second boxes or create some other way to identify which inset connects to which area.
+
+Additionally, there are times you may want to add a table to your map. Suppose you would want to add the attribute table information to the inset you just created to use the IDs as the location indicators and allow the users to scan the table for specific information. This can be accomplished by selecting the inset map in the table of contents and clicking the _Table Frame_ button <img src= "Images/arcgis-table-frame-button.jpg" alt="Toggle Editing" width="20" height="20"> on the _Insert Tab_. Next you would draw the square representing the table (this can be moved). When the table is created a new _Format Table Frame_ pane will open on the right margin. Select the inset map as the _Map Frame_ and the merged dining dataset as the _Table_. For the _Query_ select visible rows. This will add a new table frame in the table of contents. Here you can select the fields you wanted displayed in the table and reorganized them if necessary. In the _Format Table Frame_ pane you can select various options to style the data table based on your design aesthetics. 
+
+
+<p align="center"><div class="zoom"><img src= "Images/arcgis-new-table-frame.png" alt="Adding a Table to the Map" style="width:100%"></div></p>
+
+While tables are not required and should be used sparingly, they can be used to help provide additional information regarding the data that cannot be displayed through labels. However, there are always ways to create symbology that can hold multiple attributes simultaneously as discussed in lecture.
+
+Finally, to add the APSU logo to your layout, click the **Picture** button <img src= "Images/arcgis-add-picture-button.jpg" alt="Add Picture" width="20" height="20"> and draw a square on the map to place the object. Right-click and open the properties menu to make any necessary adjustments.
 
 <big><b>Question No. 4</b></big>
 <blockquote>
-_Insert Text Here_
+_On a map with the primary as large scale and the inset as small scale which map would you select to set the extent indicator?_
 </blockquote>
 
 </details>
