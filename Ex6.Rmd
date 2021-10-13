@@ -107,7 +107,7 @@ Now that you have the dataset created you can begin to add data points. Start by
 
 <p align="center"><div class="zoom"><img src= "Images/arcgis-create-point.png" alt="Create New Data Point" style="width:100%"></div></p>
 
-The new data point should now appear on the library. Repeat this process and create points for all of the on-campus dining locations and convenience stores (~12). When you have created your final point, click the _Finish Sketch_ button <img src= "Images/arcgis-finish-sketch-button.jpg" alt="Finish Sketch Button" width="20" height="20"> and save the edits using the _Save_ button <img src= "Images/arcgis-edits-save-button.jpg" alt="Save Edits" width="20" height="20">. Now you can close the _Create_ pane.
+The new data point should now appear on the library. Repeat this process and create points for all of the on-campus dining locations and convenience stores (~12). When you have created your final point, click the _Finish Sketch_ button <img src= "Images/arcgis-finish-sketch-button.jpg" alt="Finish Sketch Button" width="20" height="20"> and save the edits using the _Save_ button <img src= "Images/arcgis-edits-save-button.jpg" alt="Save Edits" width="20" height="20">. Now you can close the _Create_ pane. Once saved, you should open the attribute table for this data layer and give each location a unique Id (numeric: 0, 1, 2, 3...). To do this, double click in the Id field for each record and type in a number. When finished return to the _Edit Tab_ and save the edits. Before leaving the Edit Tab, make sure to click the _Clear_ button <img src= "Images/arcgis-clear-selection-button.jpg" alt="Clear Selection Button" width="50" height="20"> to ensure no points are actively being selected.
 
 With the on-campus locations created you could also use the same steps to create the off-campus location. However, sometimes you will find that collaborators send you information in the form of a spreadsheet or some other format such as **keyhole markup language** (KML) from Google Earth or a KMZ which is a compressed version of a KML. In this case the data being shared is stored in a \*.csv file at the following URL:
 
@@ -120,9 +120,13 @@ Then from the _Map Tab_ click on the drop-down for the _Add Data_ button and sel
 - X Field = x
 - Y Field = y
 - Z Field = Leave blank
-- Coordinate Systems - Leave as default
+- Coordinate Systems - Leave as default (GCS_WGS_1948)
 
 <p align="center"><div class="zoom"><img src= "Images/arcgis-xy-point-data.png" alt="Create New Point Data from XY" style="width:100%"></div></p>
+
+Alternatively, you can add the \*.csv file through the typical _Add Data > Data_ steps from previous exercises and then right-click on the standalone table in Table of Contents and click **Display XY Data**. In the resulting window input the same options for the similar process above and click OK. This is just one of many demonstrations how [ArcGIS Pro]{style="color:#ff4500"} has a number of duplicate ways to achieve similar outcomes.
+
+<p align="center"><div class="zoom"><img src= "Images/arcgis-display-xy-data.png" alt="Create New Point Data from XY table" style="width:100%"></div></p>
 
 The resulting process should have placed another 24 data points on your map. You can use right-click on the off-campus points and “Zoom to Layer” to see all of the new points (symbology my vary). 
 
