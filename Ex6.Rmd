@@ -103,7 +103,7 @@ After clicking _Run_ the new shapefile should have been added to your table of c
 
 <p align="center"><div class="zoom"><img src= "Images/arcgis-on-campus-dining-shp.png" alt="New Shapefile" style="width:100%"></div></p>
 
-Now that you have the dataset created you can begin to add data points. Start by navigating to the _Edit Tab_ and click on the drop-down beneath **Snapping** and select _Snapping Settings..._. Snapping tolerance sets the distance at which two points will be snapped together. This is really important when trying to close/avoid closing a polygon. In this case it might not make much of a difference though there are some on campus points in the Morgran University Center that could be fairly close together. In the _Snapping Settings_ window, chage the XY tolerance to 3 map units and click OK. Next, click on the **Create** button. In the _Create Features_ pane that opens on the right of the screen click on the "Create a point feature" button <img src= "Images/arcgis-create-point-feature-button.jpg" alt="Create new point feature" width="20" height="20"> and notice that your cursor now become a cross hairs. Place the target over the Woodward Library building _roughly_ where the [Starbucks](https://www.starbucks.com/store-locator/store/87005/austin-peay-state-university-601-college-st-clarksville-tn-370440001-us) is located and click.
+Now that you have the dataset created you can begin to add data points. Start by navigating to the _Edit Tab_ and click on the drop-down beneath **Snapping** and select _Snapping Settings..._. Snapping tolerance sets the distance at which two points will be snapped together. This is really important when trying to close/avoid closing a polygon. In this case it might not make much of a difference though there are some on campus points in the Morgan University Center that could be fairly close together. In the _Snapping Settings_ window, change the XY tolerance to 3 map units and click OK. Next, click on the **Create** button. In the _Create Features_ pane that opens on the right of the screen click on the "Create a point feature" button <img src= "Images/arcgis-create-point-feature-button.jpg" alt="Create new point feature" width="20" height="20"> and notice that your cursor now become a cross hairs. Place the target over the Woodward Library building _roughly_ where the [Starbucks](https://www.starbucks.com/store-locator/store/87005/austin-peay-state-university-601-college-st-clarksville-tn-370440001-us) is located and click.
 
 <p align="center"><div class="zoom"><img src= "Images/arcgis-create-point.png" alt="Create New Data Point" style="width:100%"></div></p>
 
@@ -111,7 +111,7 @@ The new data point should now appear on the library. Repeat this process and cre
 
 With the on-campus locations created you could also use the same steps to create the off-campus location. However, sometimes you will find that collaborators send you information in the form of a spreadsheet or some other format such as **keyhole markup language** (KML) from Google Earth or a KMZ which is a compressed version of a KML. In this case the data being shared is stored in a \*.csv file at the following URL:
 
-[https://raw.githubusercontent.com/chrismgentry/GIS1-Exercise-6/main/Data/off-campus-dining.csv](https://raw.githubusercontent.com/chrismgentry/GIS1-Exercise-6/main/Data/off-campus-dining.csv) (right-click and Save as...)
+[https://raw.githubusercontent.com/chrismgentry/GIS1-Exercise-6/main/Data/off-campus-dining.csv](https://raw.githubusercontent.com/chrismgentry/GIS1-Exercise-6/main/Data/off-campus-dining.csv) (click to open, then right-click and Save as... on the GitHub page. Be sure to save it in your project folder for Ex. 6)
 
 Then from the _Map Tab_ click on the drop-down for the _Add Data_ button and select **XY Point Data**. In the _XY Table To Point_ pane input the following options and click Run.
 
@@ -359,7 +359,9 @@ Additionally, there are times you may want to add a table to your map. Suppose y
 
 While tables are not required and should be used sparingly, they can be used to help provide additional information regarding the data that cannot be displayed through labels. However, there are always ways to create symbology that can hold multiple attributes simultaneously as discussed in lecture.
 
-Finally, to add the APSU logo to your layout, click the **Picture** button <img src= "Images/arcgis-add-picture-button.jpg" alt="Add Picture" width="20" height="20"> and draw a square on the map to place the object. Right-click and open the properties menu to make any necessary adjustments.
+Finally, to add the APSU logo to your layout, click the **Picture** button <img src= "Images/arcgis-add-picture-button.jpg" alt="Add Picture" width="20" height="20"> located on the insert tab in the graphics and text box when your layout is open and draw a square on the map to place the object. Right-click and open the properties menu for the object to make any necessary adjustments.
+
+<p align="center"><img src= "Images/arcgis-add-graphics-text-menu.jpg" alt="Adding a Table to the Map" style="width:60%"></p>
 
 <big><b>Question No. 4</b></big>
 <blockquote>
