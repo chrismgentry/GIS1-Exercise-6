@@ -183,6 +183,7 @@ With the on-campus locations created you could also use the same steps to create
 On the menu bar you will see a new option for MMQGIS available. Click _MMQGIS > Import/Export > Geometry Import from CSV File_ and in the resulting window use the following options and click apply:
 
 - Input CSV Nodes File = https://raw.githubusercontent.com/chrismgentry/GIS1-Exercise-6/main/Data/off-campus-dining.csv
+  - This process works in QGIS Version 3.16.6-Hannover. If you encounter any issues you can always click on the link to open the webpage, right/CRTL click and save as... in your project folder, and load that local file into the Input CSV Nodes File option
 - Geometry type = Point
 - Shape ID Field = name
 - Part ID Field = (this should be grayed out and not accessible)
